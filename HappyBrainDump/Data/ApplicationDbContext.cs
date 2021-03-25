@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HappyBrainDump.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Interest> Interests { get; set; }
         public DbSet<UserInterest> UserInterests { get; set; }
@@ -22,7 +22,7 @@ namespace HappyBrainDump.Data
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<IdentityUser>(entity =>
+            builder.Entity<ApplicationUser>(entity =>
             {
                 entity.ToTable(name: "User");
             });
