@@ -97,7 +97,7 @@ namespace HappyBrainDump.Areas.Identity.Pages.Account
                 var userName = Input.Email;
                 if (IsValidEmail(Input.Email))
                 {
-                    var user = await _userManager.FindByNameAsync(Input.Email);
+                    var user = await _userManager.FindByEmailAsync(Input.Email);
                     if (user != null)
                     {
                         userName = user.UserName;
